@@ -1,0 +1,14 @@
+.content {
+    ul {
+        margin: 15px;
+        list-style-type: disc;
+
+        a {
+            color: #0a0dcd;
+        }
+
+        a:hover {
+            text-decoration: underline !important;
+        }
+    }
+}

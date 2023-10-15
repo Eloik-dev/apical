@@ -1,3 +1,8 @@
+<?php
+global $wp;
+$fullURL = home_url($wp->request);
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -34,17 +39,17 @@
         </div>
         <login-popup>
             <span id='close-button'></span>
-            <form method="post" action="https://apical.xyz/usagers/authentifier" class="form-horizontal">
+            <form method="post" action="/wp-login.php" class="form-horizontal">
                 <div class="form-group row">
-                    <label for="login" class="control-label col-sm-5 requis">* Usager: </label>
+                    <label for="user_login" class="control-label col-sm-5 requis">* Usager: </label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="login" id="login" autofocus="">
+                        <input type="text" class="form-control" name="user_login" id="login" autofocus="">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="motdepasse" class="control-label col-sm-5 requis">* Mot de passe: </label>
+                    <label for="user_pass" class="control-label col-sm-5 requis">* Mot de passe: </label>
                     <div class="col-sm-6">
-                        <input type="password" class="form-control" name="motdepasse" id="motdepasse">
+                        <input type="password" class="form-control" name="user_pass" id="motdepasse">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -52,8 +57,7 @@
                     <div class="col-sm-6">
                         <div class="form-check">
                             <label for="resterconnecte" class="form-check-label" checked="">
-                                <input class="form-check-input" type="checkbox" id="resterconnecte"
-                                    name="resterconnecte">
+                                <input class="form-check-input" type="checkbox" id="resterconnecte" name="rememberme">
                                 Rester connecté
                             </label>
                         </div>
@@ -62,8 +66,9 @@
                 <div class="form-group row">
                     <div class="control-label col-sm-5"></div>
                     <div class="col-sm-6">
-                        <a id="soumettreauthentification" class="btn btn-secondary" href="#">Soumettre</a>
+                        <button name="wp-submit" class="btn btn-primary" href="#">Soumettre</button>
                     </div>
+                    <input type="hidden" name="redirect_to" value="<?= $fullURL ?>">
                 </div>
                 <div class="form-group row">
                     <div class="control-label col-sm-5"></div>
