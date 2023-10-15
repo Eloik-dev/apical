@@ -1,0 +1,74 @@
+/*
+    Main wrapper
+*/
+main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 24px 0;
+
+    /*
+        Content
+    */
+    .content {
+        width: 1080px;
+        min-height: 400px;
+        background-color: #f7f7f7;
+        padding: 15px 15px 50px 15px;
+
+        .title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h1 {
+                font-size: 20px;
+                font-weight: 500;
+                margin: 0;
+            }
+
+            hr {
+                border-color: #292b2c;
+                opacity: 1;
+                width: 250px;
+            }
+        }
+    }
+
+    /*
+        Posts
+    */
+    .posts {
+        margin-top: 100px;
+
+        .card-header {
+            padding: 0.75rem 1.25rem;
+        }
+
+        .card-body {
+            padding: 0 1.25rem;
+
+            &:hover {
+                background-color: #f8f8f8;
+
+                .list-group-item {
+                    background-color: #f8f8f8;
+                }
+            }
+        }
+
+        .list-group-item {
+            padding: 0.75rem 1.25rem;
+
+            a {
+                color: #0a0dcd;
+            }
+        }
+
+        .category-title {
+            color: #333;
+            font-weight: 500;
+            font-size: 1.05em;
+        }
+    }
+}

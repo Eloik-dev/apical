@@ -1,13 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="<?= bloginfo('charset') ?>">
+    <title>
+        <?= bloginfo('name'); ?> |
+        <?= is_front_page() ? bloginfo('description') : wp_title(''); ?>
+    </title>
+    <?= wp_head() ?>
+</head>
+
 <header>
     <div class="top">
         <div id="header-logo">
-            <a href="https://apical.xyz">
+            <a href="/">
                 <img width="350" src="<?= get_template_directory_uri() . '/assets/images/LogoApical-blanc.svg' ?>"
                     alt="Apical, ma plateforme d'apprentissage">
             </a>
         </div>
         <div class="links">
-            <a href="https://apical.xyz">
+            <a href="/">
                 <img src="<?= get_template_directory_uri() . '/assets/images/Accueil-MenuSecondaire.svg' ?>"
                     alt="Accueil" title="Accueil">
             </a>
@@ -68,19 +80,19 @@
     <nav>
         <ul>
             <li>
-                <a href="https://apical.xyz/formations">Formations</a>
+                <a href="/formations">Formations</a>
             </li>
             <li>
-                <a href="https://apical.xyz/articles">Blogue</a>
+                <a href="/">Blogue</a>
             </li>
             <li class="dropdown">
                 <a href="#" role="button">
                     Outils
                 </a>
                 <div class="dropdown-menu">
-                    <a href="https://apical.xyz/pages/formulairebcrypt">Hachage bcrypt</a>
-                    <a href="https://apical.xyz/pages/aleatoire">Générateur aléatoire</a>
-                    <a href="https://apical.xyz/pages/fontAwesome">Icônes Font Awesome</a>
+                    <a href="/">Hachage bcrypt</a>
+                    <a href="/">Générateur aléatoire</a>
+                    <a href="/">Icônes Font Awesome</a>
                 </div>
             </li>
             <li class="dropdown">
@@ -88,9 +100,9 @@
                     Aide
                 </a>
                 <div class="dropdown-menu">
-                    <a href="https://apical.xyz/contact">Contact</a>
+                    <a href="/">Contact</a>
                     <hr>
-                    <a href="https://apical.xyz/apropos">À propos</a>
+                    <a href="/">À propos</a>
                 </div>
             </li>
         </ul>
