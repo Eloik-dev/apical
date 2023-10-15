@@ -25,12 +25,6 @@ class loginPopup extends HTMLElement {
             $(this).css('display', toggled ? 'block' : 'none');
         })
     }
-
-    // Ouverture et fermeture du menu de connexion
-    submit = (e) => {
-        e.preventDefault();
-        console.log('SUBMITTED')
-    }
 }
 
 customElements.define('login-popup', loginPopup);

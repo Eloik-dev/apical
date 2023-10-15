@@ -1,1 +1,5 @@
-Ce thème tente de répliquer Apical.xyz, un site créer par Christiane Lagacé.
+Ce thème tente de répliquer Apical.xyz, un site créé par Christiane Lagacé.
+
+Un plugin a été utilisé pour la conversion de fichiers SCSS vers CSS afin de faciliser la stylisation.
+
+L'affichage de commentaires ne se fait que pour les posts.
