@@ -1,7 +1,6 @@
 <?php
 $fiches = get_category_by_slug('fiches');
-$categories = get_categories(['child_of' => $fiches->term_id]);
-
+$categories = get_term_children($fiches->term_id, 'category');
 get_header();
 ?>
 
@@ -17,7 +16,9 @@ get_header();
             </div>
             <div class="posts">
                 <div class="ui-sortable">
-                    <?php foreach ($categories as $category): ?>
+                    <?php foreach ($categories as $category):
+                        $category = get_category($category);
+                        ?>
                         <div class="card border-bottom-0">
                             <div class="card-header">
                                 <a href="#" class='category-title'>
@@ -45,6 +46,5 @@ get_header();
             </div>
         </div>
     </main>
+    <?= get_footer() ?>
 </body>
-
-<?= get_footer() ?>

@@ -1,6 +1,5 @@
 <?php
 $formations = get_category_by_slug('formations');
-
 get_header();
 ?>
 
@@ -43,7 +42,5 @@ get_header();
             </div>
         </div>
     </main>
+    <?= get_footer() ?>
 </body>
-
-
-<?= get_footer() ?>

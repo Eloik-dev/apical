@@ -16,7 +16,6 @@ class loginPopup extends HTMLElement {
 
     // Ouverture et fermeture du menu de connexion
     toggle = () => {
-        console.log('WORKS')
         const toggled = this.classList.toggle('active');
 
         $(this).stop(true, true).fadeTo();

@@ -10,7 +10,7 @@ $fullURL = home_url($wp->request);
     <meta charset="<?= bloginfo('charset') ?>">
     <title>
         <?= bloginfo('name'); ?> |
-        <?= is_front_page() ? bloginfo('description') : wp_title(''); ?>
+        <?= is_front_page() ? 'Apprendre, Participer, Interagir, Collaborer, Améliorer sa Logique' : wp_title(''); ?>
     </title>
     <?= wp_head() ?>
 </head>

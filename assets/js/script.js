@@ -1,3 +1,4 @@
+const $ = jQuery;
 $(document).ready(() => {
     $('#login-popup-button').on('click', (e) => {
         e.preventDefault();
