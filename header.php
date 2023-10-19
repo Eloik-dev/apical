@@ -1,8 +1,3 @@
-<?php
-global $wp;
-$fullURL = home_url($wp->request);
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +5,7 @@ $fullURL = home_url($wp->request);
     <meta charset="<?= bloginfo('charset') ?>">
     <title>
         <?= bloginfo('name'); ?> |
-        <?= is_front_page() ? 'Apprendre, Participer, Interagir, Collaborer, Améliorer sa Logique' : wp_title(''); ?>
+        <?= !is_404() ? (is_front_page() ? 'Apprendre, Participer, Interagir, Collaborer, Améliorer sa Logique' : wp_title('')) : 'Page inexistante'; ?>
     </title>
     <?= wp_head() ?>
 </head>
@@ -39,7 +34,8 @@ $fullURL = home_url($wp->request);
         </div>
         <login-popup>
             <span id='close-button'></span>
-            <form method="post" action="/wp-login.php" class="form-horizontal">
+            <form method="post" action="<?= esc_url(admin_url('admin-post.php')); ?>?action=custom_login"
+                class="form-horizontal">
                 <div class="form-group row">
                     <label for="user_login" class="control-label col-sm-5 requis">* Usager: </label>
                     <div class="col-sm-6">
@@ -68,7 +64,6 @@ $fullURL = home_url($wp->request);
                     <div class="col-sm-6">
                         <button name="wp-submit" class="btn btn-primary" href="#">Soumettre</button>
                     </div>
-                    <input type="hidden" name="redirect_to" value="<?= $fullURL ?>">
                 </div>
                 <div class="form-group row">
                     <div class="control-label col-sm-5"></div>
@@ -77,39 +72,45 @@ $fullURL = home_url($wp->request);
                     </div>
                 </div>
             </form>
-            <form action="">
-
-            </form>
         </login-popup>
     </div>
     <nav>
         <ul>
-            <li>
-                <a href="/formations">Formations</a>
-            </li>
-            <li>
-                <a href="/">Blogue</a>
-            </li>
-            <li class="dropdown">
-                <a href="#" role="button">
-                    Outils
-                </a>
-                <div class="dropdown-menu">
-                    <a href="/">Hachage bcrypt</a>
-                    <a href="/">Générateur aléatoire</a>
-                    <a href="/">Icônes Font Awesome</a>
-                </div>
-            </li>
-            <li class="dropdown">
-                <a href="#" role="button">
-                    Aide
-                </a>
-                <div class="dropdown-menu">
-                    <a href="/">Contact</a>
-                    <hr>
-                    <a href="/">À propos</a>
-                </div>
-            </li>
+            <?php
+            $pages = get_pages(['sort_column' => 'menu_order']);
+            foreach ($pages as $page) {
+                $page_link = get_page_link($page->ID);
+
+                $children = get_page_children($page->ID, $pages);
+
+                ob_start();
+                if ($children) {
+                    ?>
+                    <li class="dropdown">
+                        <a href="<?= get_page_link($page->ID) ?>" role="button">
+                            <?= $page->post_title ?>
+                        </a>
+                        <div class="dropdown-menu">
+                            <?php foreach ($children as $child): ?>
+                                <a href="<?= get_page_link($child->ID) ?>">
+                                    <?= $child->post_title ?>
+                                </a>
+                            <?php endforeach ?>
+                        </div>
+                    </li>
+                    <?php
+                } else if (!$page->post_parent) {
+                    ?>
+                        <li>
+                            <a href="<?= get_page_link($page->ID) ?>">
+                            <?= $page->post_title ?>
+                            </a>
+                        </li>
+                    <?php
+                }
+                echo ob_get_clean();
+            }
+            ?>
         </ul>
     </nav>
 </header>

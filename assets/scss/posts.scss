@@ -81,24 +81,32 @@ main {
         Posts
     */
     .posts {
+        display: grid;
         margin-top: 100px;
-    }
 
-    .posts,
-    .formations {
+        .develop {
+            margin: 15px 0;
+            justify-self: flex-end;
+        }
+        
         .card-header {
             padding: 0.75rem 1.25rem;
         }
-
+        
         .card-body {
+            display: none;
             padding: 0 1.25rem;
-
+            
             &:hover {
                 background-color: #f8f8f8;
-
+                
                 .list-group-item {
                     background-color: #f8f8f8;
                 }
+            }
+
+            &.active {
+                display: block;
             }
         }
 

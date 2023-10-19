@@ -6,8 +6,15 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col text-center">Conception et développement de la plateforme : <span class="auteur"><a
-                        href="https://christianelagace.com" target="_blank">Christiane Lagacé</a></span></div>
+            <div class="col text-center">
+                Conception et développement de la plateforme :
+                <span class="auteur">
+                    <a href="https://christianelagace.com" target="_blank">"Éloïk Rousseau"</a>
+                </span>
+                <br>
+                <br>
+                Ce thème a été développé pour le cours de développement Web 2
+            </div>
         </div>
     </div>
     <div class="container">
